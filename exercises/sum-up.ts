@@ -16,10 +16,11 @@ function sumUp(n: number): number {
 function arraySummer(intArr: Array<number>, algorithm: string) {
     switch (algorithm) {
         case 'O(1)':
+            // This is NOT actually O(1) time complexity. Because the reduce function is essentially looping internally.
             let sum1 = intArr.reduce((prev: any, curr: any) => {
                 return prev += curr;
             })
-            console.log('O(1) solution: ', sum1)
+            console.log('O(1) (except its not) solution: ', sum1)
             return sum1;
             break;
         case 'O(log n)':
@@ -46,3 +47,8 @@ function arraySummer(intArr: Array<number>, algorithm: string) {
 }
 
 arraySummer([23, 23, 1, 3], 'O(1)')
+
+function oneLineSum(intArr: Array<number>) {
+    let length = intArr.length;
+
+}
