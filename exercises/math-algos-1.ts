@@ -80,3 +80,35 @@ function isPowerOfTwo(n: number): boolean {
 }
 
 console.log('isPowerOfTwo: ', isPowerOfTwo(16))
+
+function factorial(n: number): number {
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+console.log('factorial 5: ', factorial(5))
+
+function factorialRecursive(n: number): number {
+    // Not optimized, this will have EXPONENTIAL time complexity
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+function fibonacciMemodRecursive(n: number, memo: any): number {
+    let result: number
+    if (memo[n]) return memo[n]
+    if (n === 0 || n === 1) {
+        result = 1;
+    } else {
+        result = fibonacciMemodRecursive(n - 1, memo) + fibonacciMemodRecursive(n - 2, memo)
+    }
+    memo[n] = result; // store the value
+    return result;
+}
+
+console.log('fibMemoRecursive 6 : ', fibonacciMemodRecursive(6, {}))
